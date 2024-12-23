@@ -8,7 +8,7 @@ def getusers(request):
         print("\nChecking all groups:")
         all_groops = Groop.objects.all()
         for groop in all_groops:
-            print(f"Group found - ID: {groop._id}, Name: {groop.groop_name}")
+            print(f"Group found - ID: {groop._id}, Name: {groop.groopName}")
 
         # Create lookup dictionary with exact IDs from your database
         groop_lookup = {

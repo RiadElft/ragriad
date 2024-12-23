@@ -62,7 +62,7 @@ class GroopRoute(models.Model):
 
 class Groop(models.Model):
     _id = models.ObjectIdField()
-    groop_name = models.CharField(max_length=255)
+    groopName = models.CharField(max_length=255)
     
     class Meta:
         db_table = 'groops'
