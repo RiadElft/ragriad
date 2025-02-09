@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Search Documents</h1>
+    
+    <form method="get" action=".">
+        <div class="form-group">
+            <input type="text" name="q" class="form-control" placeholder="Search..." value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div id="search-results" class="mt-4">
+        {% if query %}
+            {% if results %}
+                <h2>Results for: "{{ query }}"</h2>
+                {% for result in results %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ result.title }}</h5>
+                            <p class="card-text">{{ result.content }}</p>
+                            <p class="text-muted">Score: {{ result.score|floatformat:2 }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-warning">
+                    <h4>No results found for your query.</h4>
+                    <p>Try refining your search terms or check if documents are available.</p>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

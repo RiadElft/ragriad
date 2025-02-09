@@ -1,0 +1,42 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --navbar-bg: #343a40;
+  --navbar-text: #ffffff;
+  --container-bg: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f8f9fa;
+  --navbar-bg: #212529;
+  --navbar-text: #f8f9fa;
+  --container-bg: #2d2d2d;
+  --border-color: #495057;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg) !important;
+  color: var(--navbar-text) !important;
+}
+
+.container {
+  background-color: var(--container-bg);
+  border-color: var(--border-color);
+}
+
+.btn-outline-light {
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+}

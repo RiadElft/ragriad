@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">Search PDF Documents</h1>
+            
+            <!-- Search Form -->
+            <form method="get" action="" class="mb-4">
+                <div class="input-group">
+                    <input type="text" 
+                           name="q" 
+                           class="form-control" 
+                           placeholder="Enter your search query..." 
+                           value="{{ query|default:'' }}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            {% if query %}
+                {% if results %}
+                    <h2>Results for: "{{ query }}"</h2>
+                    {% for result in results %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ result.title }}</h5>
+                                <p class="card-text">{{ result.content }}</p>
+                                <p class="text-muted">Score: {{ result.score|floatformat:2 }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning">
+                        <h4>No results found</h4>
+                        <p>No documents found matching "{{ query }}". Try different search terms.</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
